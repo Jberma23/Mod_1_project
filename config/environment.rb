@@ -14,11 +14,11 @@ ActiveRecord::Base.establish_connection(
   :adapter => "sqlite3",
   :database => "db/Monster_database.db.sqlite"
 )
-ActiveRecord::Base.logger = Logger.new(log.txt)
+ActiveRecord::Base.logger = Logger.new(STDOUT)
 
-require_relative "lib/job.rb"
-require_relative "lib/organize.rb"
-require_relative "lib/sector.rb"
-require_relative "db/seeds.rb"
-require_relative "Rakefile"
+require_relative "../lib/job.rb"
+# require_relative "../lib/organize.rb"
+# require_relative "lib/sector.rb"
+# require_relative "db/seeds.rb"
+# require_relative "Rakefile"
 

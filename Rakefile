@@ -1,5 +1,5 @@
 require_relative "./config/environment.rb"
-require_relative "sinatra/activerecord/rake"
+require "sinatra/activerecord/rake"
 require_relative  "./lib/job.rb"
 
 desc "start our app console"
