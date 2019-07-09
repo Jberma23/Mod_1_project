@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_161351) do
+ActiveRecord::Schema.define(version: 2019_07_09_185739) do
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.boolean "full_time"
-    t.integer "salary"
+    t.string "salary"
     t.string "page_url"
     t.string "location"
   end
