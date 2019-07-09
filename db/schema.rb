@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_154955) do
+ActiveRecord::Schema.define(version: 2019_07_09_160830) do
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,11 @@ ActiveRecord::Schema.define(version: 2019_07_09_154955) do
     t.boolean "full_time"
     t.integer "salary"
     t.string "page_url"
+    t.string "location"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
   end
 
 end
