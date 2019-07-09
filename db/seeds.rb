@@ -21,7 +21,8 @@ require_relative "../app/models/sector.rb"
     page_url: Faker::Internet.url,
     location: Faker::Address.city
     )
-end 
+end
+
 40.times do 
     Organization.find_or_create_by(
     name: Faker::Company.name
