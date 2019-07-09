@@ -17,10 +17,9 @@ ActiveRecord::Base.establish_connection(
 ActiveRecord::Base.logger = Logger.new(STDOUT)
 
 require_relative "../app/models/job.rb"
-# require_relative "../lib/organize.rb"
-# require_relative "lib/sector.rb"
-# require_relative "db/seeds.rb"
-# require_relative "Rakefile"
+require_relative "../app/models/organization.rb"
+require_relative "../app/models/sector.rb"
+require_relative "../db/seeds.rb"
 
 
 
