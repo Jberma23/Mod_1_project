@@ -25,37 +25,37 @@ require_relative "../app/models/sector.rb"
 #     location: Faker::Address.city
 #     )
 # end
-def gen_data
+# def gen_data
     
-    counter = 0
-    org_num= rand(0..2)
-    while counter < 60 do 
+#     counter = 0
+#     org_num= rand(0..2)
+#     while counter < 60 do 
         
-      Organization.find_or_create_by(
-    name: "#{Faker::Company.name}-#{counter + 1}")
+#       Organization.find_or_create_by(
+#     name: "#{Faker::Company.name}-#{counter + 1}")
 
-        # Organization.all.each do |company|
-        x = Job.find_or_create_by(
-            title: "#{Faker::Company.profession}-#{counter+1}",
-            description: "#{Faker::Lorem.sentence}",
-            full_time: Faker::Boolean.boolean,
-            salary: "$#{Faker::Number.number(5).insert(2, ",")}",
-            page_url: "#{Faker::Internet.url}",
-            location: "#{Faker::Address.city}",
-            organization: Organization.all[(counter += 1)])
-            # binding.pry
+#         # Organization.all.each do |company|
+#         x = Job.find_or_create_by(
+#             title: "#{Faker::Company.profession}-#{counter+1}",
+#             description: "#{Faker::Lorem.sentence}",
+#             full_time: Faker::Boolean.boolean,
+#             salary: "$#{Faker::Number.number(5).insert(2, ",")}",
+#             page_url: "#{Faker::Internet.url}",
+#             location: "#{Faker::Address.city}",
+#             organization: Organization.all[(counter += 1)])
+#             # binding.pry
       
-        Sector.find_or_create_by(
-            name: "#{Faker::Commerce.department}-#{counter+1}" )
+#         Sector.find_or_create_by(
+#             name: "#{Faker::Commerce.department}-#{counter+1}" )
 
-        Department.find_or_create_by(
-                    organization: Organization.all[counter],
-                    sector: Sector.all[counter],
-                    job:  Job.all[counter])
-                    counter += 1
-                end 
+#         Department.find_or_create_by(
+#                     organization: Organization.all[counter],
+#                     sector: Sector.all[counter],
+#                     job:  Job.all[counter])
+#                     counter += 1
+#                 end 
    
-end
+# end
 # gen_data
 
 # 20.times do 

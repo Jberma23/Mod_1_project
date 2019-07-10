@@ -3,7 +3,7 @@ class Job < ActiveRecord::Base
     has_one :department
     has_one :sector, through: :department
     
-    def attribute_add_dot
+    def print_hash
             {
                 title: self.title, 
                 description: self.description, 
@@ -25,12 +25,15 @@ class Job < ActiveRecord::Base
         end
     end
 
-    # def self.search_by_full_time
-    #     if 
-    #     x = self.attribute_add.full_time == true 
-    #     return self.attribute_add.full_time
-    #     end
-    # end
+    def self.search_by_full_time
+        
+         self.attribute_add.select do |job|
+            if job[:full_time] == true
+                 puts job
+                
+            end
+        end
+    end
 
     def self.search_by_location(string)
         x= self.all.select do |attribute| 
@@ -47,7 +50,7 @@ class Job < ActiveRecord::Base
     
     #class method to return the highest paying job
     def self.highest_pay 
-        self.sort_by_salary.last.attribute_add_dot
+        self.sort_by_salary.last.print_hash
     end
 
     def self.sort_by_salary
