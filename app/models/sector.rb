@@ -1,6 +1,7 @@
 class Sector < ActiveRecord::Base 
-has_many :organizations
-has_many :jobs, through: :organizations
+has_many :departments
+has_many :organizations, through: :departments
+has_many :jobs, through: :departments
 
 # @@all = []
 

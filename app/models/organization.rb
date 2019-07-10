@@ -1,4 +1,5 @@
 class Organization < ActiveRecord::Base 
+has_many :departments
+has_many :sectors, through: :departments
 has_many :jobs
-has_many :sectors
 end

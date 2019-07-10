@@ -1,5 +1,7 @@
 class Job < ActiveRecord::Base 
     belongs_to :organization
-    belongs_to :sector 
+    has_one :department
+    has_one :sector, through: :department
+    
 end
  

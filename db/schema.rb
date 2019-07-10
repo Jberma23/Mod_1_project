@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_193601) do
+ActiveRecord::Schema.define(version: 2019_07_10_153854) do
+
+  create_table "departments", force: :cascade do |t|
+    t.integer "organization_id"
+    t.integer "sector_id"
+    t.integer "job_id"
+  end
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"
