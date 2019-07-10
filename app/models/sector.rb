@@ -2,19 +2,16 @@ class Sector < ActiveRecord::Base
 has_many :organizations
 has_many :jobs, through: :organizations
 
-@@all = []
+# @@all = []
 
-def initialize(name)
-    @name = name
-    self.class.all << self
-end
+# def initialize(name)
+#     @name = name
+#     self.class.all << self
+# end
 
-def self.all
-    @@all
-end
-
-# def 
-
+# def self.all
+#     @@all
+# end
 
 
 end

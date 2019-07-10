@@ -6,6 +6,8 @@ require_relative "../app/models/job.rb"
 require_relative "../app/models/organization.rb"
 require_relative "../app/models/sector.rb"
 Job.destroy_all
+Organization.destroy_all
+Sector.destroy_all
 # Job.find_or_create_by(title: "Junior Software Developer", description: "Works on a development team writing and maintaining code for computer applications", full_time: false, salary: 55000, page_url: "https://www.monster.com/job_1", location: "Florida")
 # Job.find_or_create_by(title: "Senior Software Developer", description: "Writes code like a boss", full_time: true, salary: 120000, page_url: "https://www.monster.com/job_2", location: "Washington D.C.")
 # Job.find_or_create_by(title: "Medical assistant", description: "Assist in medical stuff", full_time: true, salary: 40000, page_url: "https://www.monster.com/job_3", location: "Los Angeles")
