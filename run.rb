@@ -30,4 +30,17 @@ puts Job.search_by_full_time
 puts ""
 puts "*************"
 puts ""
+puts Job.search_by_part_time
+puts ""
+puts "*************"
+puts ""
+# puts Job.highest_pay_part_time
+puts ""
+puts "*************"
+puts ""
+puts ""
+puts "*************"
+print "$#{Organization.first.avg_sal_org}"
+puts ""
+puts "*************"
 # attribute_add

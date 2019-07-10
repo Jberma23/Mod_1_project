@@ -26,14 +26,20 @@ class Job < ActiveRecord::Base
     end
 
     def self.search_by_full_time
-        
          self.attribute_add.select do |job|
             if job[:full_time] == true
                  puts job
-                
             end
         end
     end
+
+    def self.search_by_part_time
+        self.attribute_add.select do |job|
+           if job[:full_time] == false
+                puts job
+           end
+       end
+   end
 
     def self.search_by_location(string)
         x= self.all.select do |attribute| 
@@ -58,5 +64,17 @@ class Job < ActiveRecord::Base
             job.salary_int
         end
     end
+
+    # def self.highest_pay_part_time
+    #     # self.all.search_by_part_time.highest_pay 
+    #     highest_pay 
+    #     # if :full_time == false
+    #     # puts highest_pay
+        
+        # binding.pry
+        # end
+    # end
+
+
 end
  
