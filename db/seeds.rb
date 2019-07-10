@@ -6,9 +6,9 @@ require_relative '../config/environment.rb'
 require_relative "../app/models/job.rb"
 require_relative "../app/models/organization.rb"
 require_relative "../app/models/sector.rb"
-Job.destroy_all
-Organization.destroy_all
-Sector.destroy_all
+# Job.destroy_all
+# Organization.destroy_all
+# Sector.destroy_all
 # Job.find_or_create_by(title: "Junior Software Developer", description: "Works on a development team writing and maintaining code for computer applications", full_time: false, salary: 55000, page_url: "https://www.monster.com/job_1", location: "Florida")
 # Job.find_or_create_by(title: "Senior Software Developer", description: "Writes code like a boss", full_time: true, salary: 120000, page_url: "https://www.monster.com/job_2", location: "Washington D.C.")
 # Job.find_or_create_by(title: "Medical assistant", description: "Assist in medical stuff", full_time: true, salary: 40000, page_url: "https://www.monster.com/job_3", location: "Los Angeles")
@@ -28,6 +28,7 @@ Sector.destroy_all
 def gen_data
     
     counter = 0
+    org_num= rand(0..2)
     while counter < 60 do 
         
       Organization.find_or_create_by(
@@ -41,7 +42,8 @@ def gen_data
             salary: "$#{Faker::Number.number(5).insert(2, ",")}",
             page_url: "#{Faker::Internet.url}",
             location: "#{Faker::Address.city}",
-            organization: Organization.all[counter] )
+            organization: Organization.all[(counter += 1)])
+            # binding.pry
       
         Sector.find_or_create_by(
             name: "#{Faker::Commerce.department}-#{counter+1}" )
@@ -52,10 +54,9 @@ def gen_data
                     job:  Job.all[counter])
                     counter += 1
                 end 
-                binding.pry
    
 end
-gen_data
+# gen_data
 
 # 20.times do 
 #     Organization.find_or_create_by(

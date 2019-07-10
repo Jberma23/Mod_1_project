@@ -14,7 +14,7 @@ ActiveRecord::Base.establish_connection(
   :adapter => "sqlite3",
   :database => "db/Monster_database.db.sqlite"
 )
-ActiveRecord::Base.logger = Logger.new(STDOUT)
+ActiveRecord::Base.logger = nil
 
 require_relative "../app/models/job.rb"
 require_relative "../app/models/organization.rb"
