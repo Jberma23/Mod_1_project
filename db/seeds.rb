@@ -14,7 +14,6 @@ Job.destroy_all
 # Job.find_or_create_by(title: "Lunch lady", description: "Cooking up that good good", full_time: false, salary: 22000, page_url: "https://www.monster.com/job_6",location: "NYC")
 100.times do 
     Job.find_or_create_by(
-        
     title: Faker::Company.profession,
     description: Faker::Lorem.sentence,
     full_time: Faker::Boolean.boolean,
