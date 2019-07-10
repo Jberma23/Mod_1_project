@@ -19,6 +19,7 @@ ActiveRecord::Base.logger = Logger.new(STDOUT)
 require_relative "../app/models/job.rb"
 require_relative "../app/models/organization.rb"
 require_relative "../app/models/sector.rb"
+require_relative "../app/models/department.rb"
 require_relative "../db/seeds.rb"
 
 
