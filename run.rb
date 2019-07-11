@@ -13,9 +13,9 @@ def help
 puts "These are the "
 end
 
-
-
-gen_data
+# gen_data
+create_job_department
+# destroy_all
 # welcome_message
 puts ""
 puts "*************"
@@ -43,14 +43,36 @@ puts ""
 puts Job.search_by_part_time
 puts ""
 puts "*************"
-puts ""
-# puts Job.highest_pay_part_time
-puts ""
+puts "Search by highest pay part time "
 puts "*************"
 puts ""
+puts Job.highest_pay_part_time
 puts ""
 puts "*************"
-print "$#{Organization.first.avg_sal_org}"
+puts "Search by highest pay full-time "
+puts "*************"
+puts ""
+puts Job.highest_pay_full_time
+puts ""
+puts ""
+puts ""
+puts "*************"
+puts "list average salary of the first organization"
+puts "*************"
+# binding.pry
+print Organization.average_salary_by_name("Waters-Armstrong-2")
+print Organization.average_sal_with_name("Waters-Armstrong-2")
+print "$#{Organization.all[name: "Waters-Armstrong-2"].avg_sal_org}"
+puts ""
+puts "*************"
+puts "list jobs of an organization"
+puts "*************"
+print "$#{Organization.all[1].org_jobs}"
+puts ""
+puts "*************"
+puts "list top five highest salaries"
+puts "*************"
+print "$#{Organization.all.top_five_orgs}"
 puts ""
 puts "*************"
 # attribute_add
