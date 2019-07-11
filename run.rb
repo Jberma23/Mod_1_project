@@ -16,18 +16,25 @@ gen_data
 # welcome_message
 puts ""
 puts "*************"
+puts "Highest pay"
+puts "*************"
 puts ""
 print Job.highest_pay
 puts ""
 puts "*************"
+puts "Search by location"
+puts "*************"
+print Job.search_by_location("Klockoburgh")
 puts ""
-print Job.search_by_location("Luigiton")
-puts ""
+puts "*************"
+puts "Search by full time"
 puts "*************"
 puts ""
 # binding.pry
 puts Job.search_by_full_time
 puts ""
+puts "*************"
+puts "Search by part time "
 puts "*************"
 puts ""
 puts Job.search_by_part_time

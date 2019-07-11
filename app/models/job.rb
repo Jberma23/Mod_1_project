@@ -9,6 +9,7 @@ class Job < ActiveRecord::Base
                 description: self.description, 
                 full_time: self.full_time,
                 salary: self.salary,
+                location: self.location,
                 page_url: self.page_url
             }
     end
@@ -20,6 +21,7 @@ class Job < ActiveRecord::Base
             description: job.description, 
             full_time: job.full_time,
             salary: job.salary,
+            location: job.location,
             page_url: job.page_url
         }
         end
