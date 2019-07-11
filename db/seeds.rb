@@ -6,9 +6,11 @@ require_relative '../config/environment.rb'
 require_relative "../app/models/job.rb"
 require_relative "../app/models/organization.rb"
 require_relative "../app/models/sector.rb"
-# Job.destroy_all
-# Organization.destroy_all
-# Sector.destroy_all
+def destroy_all
+    Job.destroy_all
+    Organization.destroy_all
+    Sector.destroy_all
+end
 # Job.find_or_create_by(title: "Junior Software Developer", description: "Works on a development team writing and maintaining code for computer applications", full_time: false, salary: 55000, page_url: "https://www.monster.com/job_1", location: "Florida")
 # Job.find_or_create_by(title: "Senior Software Developer", description: "Writes code like a boss", full_time: true, salary: 120000, page_url: "https://www.monster.com/job_2", location: "Washington D.C.")
 # Job.find_or_create_by(title: "Medical assistant", description: "Assist in medical stuff", full_time: true, salary: 40000, page_url: "https://www.monster.com/job_3", location: "Los Angeles")
@@ -54,41 +56,26 @@ def gen_data
                     job:  Job.all[counter])
                     counter += 1
                 end 
-   
 end
-# gen_data
 
-# 20.times do 
-#     Organization.find_or_create_by(
-#     name: Faker::Company.name
-#     )
-# end
+def create_job_department
+    counter = 0
+    while counter < 10 do 
+     Job.find_or_create_by(
+        title: "#{Faker::Company.profession}-#{counter+1}",
+        description: "#{Faker::Lorem.sentence}",
+        full_time: Faker::Boolean.boolean,
+        salary: "$#{Faker::Number.number(5).insert(2, ",")}",
+        page_url: "#{Faker::Internet.url}",
+        location: "#{Faker::Address.city}",
+        organization: Organization.all[(1 + counter)])
+        #  binding.pry
+        Department.find_or_create_by(
+            organization: Organization.all[1 + counter],
+            sector: Sector.all[1 + counter],
+            job:  Job.all[1 + counter])
+            counter += 1
+    end 
 
-    
-# 20.times do 
-#     Sector.find_or_create_by(
-#         name: Faker::Commerce.department
-#     )
-# end
-
-
-#  20.times do 
-    
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+end
+         

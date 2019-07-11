@@ -10,9 +10,9 @@ def welcome_message
         puts "Welcome to our Job Analyzer!"
         end
 
-
-
 # gen_data
+create_job_department
+# destroy_all
 # welcome_message
 puts ""
 puts "*************"
@@ -56,7 +56,20 @@ puts ""
 puts "*************"
 puts "list average salary of the first organization"
 puts "*************"
-print "$#{Organization.first.avg_sal_org}"
+# binding.pry
+print Organization.average_salary_by_name("Waters-Armstrong-2")
+print average_sal_with_name("Waters-Armstrong-2")
+print "$#{Organization.all[name: "Waters-Armstrong-2"].avg_sal_org}"
+puts ""
+puts "*************"
+puts "list jobs of an organization"
+puts "*************"
+print "$#{Organization.all[1].org_jobs}"
+puts ""
+puts "*************"
+puts "list top five highest salaries"
+puts "*************"
+print "$#{Organization.all.top_five_orgs}"
 puts ""
 puts "*************"
 # attribute_add
