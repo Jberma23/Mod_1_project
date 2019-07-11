@@ -26,7 +26,6 @@ def help_method
 end
 
 def welcome_message
-<<<<<<< HEAD
         puts "Welcome to our Job Analyzer!"
 end
 def help 
@@ -95,7 +94,7 @@ puts "*************"
 print "$#{Organization.all.top_five_orgs}"
 puts ""
 puts "*************"
-=======
+
     puts "Welcome to our Job Analyzer!"
     puts ""
     help_method
@@ -148,5 +147,4 @@ end
 # gen_data
 welcome_message
 get_input
->>>>>>> cli
 # attribute_add
