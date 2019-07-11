@@ -20,8 +20,7 @@ class Organization < ActiveRecord::Base
            return x
            binding.pry
            return self.name
-        end
-    
+            end
         end
     end
     def job_posting_detail
@@ -36,7 +35,6 @@ class Organization < ActiveRecord::Base
     }
     end
     x
-
     end
 
 
@@ -65,17 +63,36 @@ class Organization < ActiveRecord::Base
              org.name == name
         end
         x
-     end
+    end
 
     def  self.average_salary_by_name(name)
         x = return_org_by_name(name)
-        binding.pry
-        self.all.map |org|
-        if org.name == name
-            org.avg_sal_org
+        x.each do |y|
+            y.avg_sal_org_by_org
+            # binding.pry
         end
-
     end
+    
+
+
+
+    def avg_sal_org_by_org
+        total_salary = 0
+        self.jobs.each do |job|
+            z = []
+            z << job[:salary]
+     
+            z.each do |each|
+                y = org_salary_int(each)
+                q = total_salary + y
+                x = q/(z.length+1)
+                return x
+                binding.pry
+            return self.name
+            end
+        end
+    end
+
 
 end
 

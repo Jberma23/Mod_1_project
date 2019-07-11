@@ -58,7 +58,7 @@ puts "list average salary of the first organization"
 puts "*************"
 # binding.pry
 print Organization.average_salary_by_name("Waters-Armstrong-2")
-print average_sal_with_name("Waters-Armstrong-2")
+print Organization.average_sal_with_name("Waters-Armstrong-2")
 print "$#{Organization.all[name: "Waters-Armstrong-2"].avg_sal_org}"
 puts ""
 puts "*************"
