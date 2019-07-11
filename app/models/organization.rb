@@ -10,16 +10,15 @@ class Organization < ActiveRecord::Base
 
     def avg_sal_org
         org_sal = 0
-        self.all.jobs.each do |job|
+        self.jobs.each do |job|
             z = []
             z << job[:salary]
-            binding.pry
             z.each do |each|
             y = org_salary_int(each)
             q = org_sal + y
            x = q/(z.length+1)
            return x
-           binding.pry
+        #    binding.pry
            return self.name
             end
         end
@@ -45,17 +44,41 @@ class Organization < ActiveRecord::Base
             end
             # binding.pry
             y = x[0]
-            binding.pry
+            # binding.pry
             puts y.job_posting_detail
         end
 
     def self.top_five_orgs
-        x = self.all.sort_by do |org|
-            org.jobs.length
-        end
-        puts x.last(5).reverse
-        
+        comp_jobs = 0
+         x = self.all.sort_by do |org|
+           comp_jobs = org.jobs.length
+           z = self.all.sort_by do |stuff|
+                comp_jobs
+            end
+            jobs = []
+            z.first(5).each do |organization|
+               
+                organization.jobs.each do |job|
+                jobs << job.first.job_posting_detail
+            end
+            return organization.name
+            return jobs
+            binding.pry
+            end 
+            
+
+            binding.pry
+            # puts comp_jobs
+            # .last(5).reverse
+                
+                # binding.pry
+            end
     end
+
+        # end
+
+        
+  
 
 
 
@@ -88,7 +111,7 @@ class Organization < ActiveRecord::Base
                 q = total_salary + y
                 x = q/(z.length+1)
                 return x
-                binding.pry
+                # binding.pry
             return self.name
             end
         end
