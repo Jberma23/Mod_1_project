@@ -105,9 +105,9 @@ require_relative "./db/seeds.rb"
 
 
         def get_input
-                input = false
+                input = ""
                 while true
-                        valid = ["","find highest paying job","1.","1","one", "Search jobs by a given location", "2.", "2", "two", "search jobs by full time status","3.","3","three","search jobs by part time status","4.", "four","find the average salary by organization","5.","5","five", "help", "quit"]
+                        valid = ["","find highest paying job","1.","1","one", "search jobs by a given location", "2.", "2", "two", "search jobs by full time status","3.","3","three","search jobs by part time status","4.", "four","find the average salary by organization","5.","5","five", "help", "quit"]
                         puts ""
                         if valid.include?(input)
                                 puts "Please enter a given input or number:"
@@ -127,7 +127,7 @@ require_relative "./db/seeds.rb"
                                         puts ""
                                         puts Job.search_by_full_time
                                         puts ""
-                                elsif input == "seach jobs by part time status" || input == "4." || input == "4" || input == "four"
+                                elsif input == "search jobs by part time status" || input == "4." || input == "4" || input == "four"
                                         puts ""
                                         puts Job.search_by_part_time
                                         puts ""
