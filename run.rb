@@ -12,7 +12,7 @@ def welcome_message
 
 
 
-gen_data
+# gen_data
 # welcome_message
 puts ""
 puts "*************"
@@ -40,12 +40,21 @@ puts ""
 puts Job.search_by_part_time
 puts ""
 puts "*************"
-puts ""
-# puts Job.highest_pay_part_time
-puts ""
+puts "Search by highest pay part time "
 puts "*************"
 puts ""
+puts Job.highest_pay_part_time
 puts ""
+puts "*************"
+puts "Search by highest pay full-time "
+puts "*************"
+puts ""
+puts Job.highest_pay_full_time
+puts ""
+puts ""
+puts ""
+puts "*************"
+puts "list average salary of the first organization"
 puts "*************"
 print "$#{Organization.first.avg_sal_org}"
 puts ""

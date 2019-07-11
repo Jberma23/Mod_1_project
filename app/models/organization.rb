@@ -18,6 +18,8 @@ class Organization < ActiveRecord::Base
             q = org_sal + y
            x = q/(z.length+1)
            return x
+           binding.pry
+           return self.name
         end
     
         end

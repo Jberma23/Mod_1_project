@@ -58,7 +58,7 @@ class Job < ActiveRecord::Base
     
     #class method to return the highest paying job
     def self.highest_pay 
-        self.sort_by_salary.last.print_hash
+     self.sort_by_salary.last.print_hash
     end
 
     def self.sort_by_salary
@@ -67,15 +67,25 @@ class Job < ActiveRecord::Base
         end
     end
 
-    # def self.highest_pay_part_time
-    #     # self.all.search_by_part_time.highest_pay 
-    #     highest_pay 
-    #     # if :full_time == false
-    #     # puts highest_pay
-        
-        # binding.pry
-        # end
-    # end
+    def self.highest_pay_part_time
+        x= self.all.sort_by_salary.last(5)
+        self.all.sort_by_salary.last(5).each do |job|
+            if job[:full_time] == false
+                return job.print_hash
+            end  
+        end
+    end
+  
+    def self.highest_pay_full_time
+        self.all.sort_by_salary.last(5)
+        self.all.sort_by_salary.last(5).each do |career|
+            if career[:full_time] == true
+                return career.print_hash
+            end  
+        end
+    end
+
+    
 
 
 end
