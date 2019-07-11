@@ -13,6 +13,7 @@ class Organization < ActiveRecord::Base
         self.jobs.each do |job|
             z = []
             z << job[:salary]
+            binding.pry
             z.each do |each|
             y = org_salary_int(each)
             q = org_sal + y

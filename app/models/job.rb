@@ -67,15 +67,16 @@ class Job < ActiveRecord::Base
         end
     end
 
-    # def self.highest_pay_part_time
-    #     # self.all.search_by_part_time.highest_pay 
-    #     highest_pay 
-    #     # if :full_time == false
-    #     # puts highest_pay
+    def self.highest_pay_part_time
+        self.all.search_by_part_time.highest_pay 
+        binding.pry
+        highest_pay 
+        if :full_time == false 
+        puts highest_pay
         
-        # binding.pry
-        # end
-    # end
+        binding.pry
+        end
+    end
 
 
 end

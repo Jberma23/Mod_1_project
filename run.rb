@@ -8,7 +8,10 @@ require_relative "./app/models/department.rb"
 require_relative "./db/seeds.rb"
 def welcome_message
         puts "Welcome to our Job Analyzer!"
-        end
+end
+def help 
+puts "These are the "
+end
 
 
 
