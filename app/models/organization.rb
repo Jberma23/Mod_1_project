@@ -14,74 +14,56 @@ class Organization < ActiveRecord::Base
             z = []
             z << job[:salary]
             z.each do |each|
-            y = org_salary_int(each)
-            q = org_sal + y
-           x = q/(z.length+1)
-           return x
-        #    binding.pry
-           return self.name
+                y = org_salary_int(each)
+                q = org_sal + y
+                x = q/(z.length+1)
+                return x
+                return self.name
             end
         end
     end
+
     def job_posting_detail
-    x = self.jobs.map do |job|      
-    hash = {   
-        title: job.title, 
-        description: job.description, 
-        full_time: job.full_time,
-        salary: job.salary,
-        location: job.location,
-        page_url: job.page_url
-    }
-    end
-    x
-    end
-
-
-        def org_jobs
-            x = Organization.all.select do |org|
-                org == self 
-            end
-            # binding.pry
-            y = x[0]
-            # binding.pry
-            puts y.job_posting_detail
+        x = self.jobs.map do |job|      
+            hash = {   
+                title: job.title, 
+                description: job.description, 
+                full_time: job.full_time,
+                salary: job.salary,
+                location: job.location,
+                page_url: job.page_url
+            }
         end
+        x
+    end
+
+
+    def org_jobs
+        x = Organization.all.select do |org|
+            org == self 
+        end
+         y = x[0]
+        puts y.job_posting_detail
+    end
+
 
     def self.top_org
         comp_jobs = 0
-         x = self.all.sort_by do |org|
-           comp_jobs = org.jobs.length
-           z = self.all.sort_by do |stuff|
-                comp_jobs
-            end
+        x = self.all.sort_by do |org|
+                comp_jobs = org.jobs.length
+                z = self.all.sort_by do |stuff|
+                    comp_jobs
+                 end
             jobs = []
             z.first(5).each do |organization|
-               
                 organization.jobs.each do |job|
-                jobs << job.first.job_posting_detail
-            end
+                    jobs << job.first.job_posting_detail
+                end
             return organization.name
-          
-            binding.pry
             end 
-            
-
-            binding.pry
-            # puts comp_jobs
-            # .last(5).reverse
-                
-                # binding.pry
-            end
+        end
     end
-
-        # end
-
-        
-  
-
-
-
+          
     def self.return_org_by_name(name)
         x = self.all.select do |org|
              org.name == name
@@ -93,7 +75,6 @@ class Organization < ActiveRecord::Base
         x = return_org_by_name(name)
         x.each do |y|
             y.avg_sal_org_by_org
-            # binding.pry
         end
     end
     
@@ -111,22 +92,12 @@ class Organization < ActiveRecord::Base
                 q = total_salary + y
                 x = q/(z.length+1)
                 return x
-                # binding.pry
-            return self.name
+                return self.name
             end
         end
     end
 
-
 end
 
-# end
-
-
-
-#     def highest_paying_organization
-#     #  returns array of organizations with the highest paying jobs
-#     #  average salary of each org and max avg_sal
-#     end
 
         
