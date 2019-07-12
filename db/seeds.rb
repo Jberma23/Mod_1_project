@@ -6,6 +6,8 @@ require_relative '../config/environment.rb'
 require_relative "../app/models/job.rb"
 require_relative "../app/models/organization.rb"
 require_relative "../app/models/sector.rb"
+
+
 def destroy_all
     Job.destroy_all
     Organization.destroy_all
@@ -77,4 +79,3 @@ def create_job_department
     end 
 
 end
-         
