@@ -77,14 +77,14 @@ require_relative "./db/seeds.rb"
 # puts "*************"
 
 
- Organization
- Organization
- puts Rainbow(Organization.top_org).white.underline
- puts "checked and works "
- puts Rainbow(Job.highest_pay_part_time).white.underline
- puts Rainbow(Job.highest_pay_full_time).white.underline
- puts ""
- Job
+#  Organization
+#  Organization
+#  puts Rainbow(Organization.top_org).white.underline
+#  puts "checked and works "
+#  puts Rainbow(Job.highest_pay_part_time).white.underline
+#  puts Rainbow(Job.highest_pay_full_time).white.underline
+#  puts ""
+#  Job
 
 
 
@@ -98,11 +98,13 @@ require_relative "./db/seeds.rb"
                 puts  Rainbow("2. Search jobs by a given location").cyan
                 puts  Rainbow("3. Search jobs by full time status").cyan
                 puts  Rainbow("4. Search jobs by part time status").cyan
+                puts  Rainbow("5. Find the highest paying full time job").cyan
+                puts  Rainbow("6. Find the highest paying part time job").cyan
                 puts ""
                 puts ""
                 puts   Rainbow("Organization Inputs: ").aqua
                 puts ""
-                puts  Rainbow("5. Find the average salary by an organization").green
+                puts  Rainbow("7. Find the average salary by an organization").green
                 puts ""
                 puts ""
                 puts  Rainbow("Trouble Shooting Inputs: ").red
