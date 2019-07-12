@@ -1,6 +1,7 @@
 require 'pry'
 require 'rainbow'
 using Rainbow
+require 'tty-prompt'
 require_relative "./config/environment.rb"
 require "sinatra/activerecord/rake"
 require_relative "./app/models/job.rb"
@@ -11,9 +12,12 @@ require_relative "./db/seeds.rb"
 
 
 
-
+        @prompt = TTY::Prompt.new
 
         def help_method
+            # user_input = @prompt.select("Choose your input", ["1. Find highest paying job", "2. Search jobs by a given location", "3. Search jobs by full time status", "4. Search jobs by part time status", "5. Find the highest paying full time job", "6. Find the highest paying part time job", "7. Find the average salary by an organization"])
+                
+        
                 puts Rainbow("Here is a list of all inputs available:").red
                 puts ""
                 puts ""
@@ -32,7 +36,7 @@ require_relative "./db/seeds.rb"
                 puts  Rainbow("7. Find the average salary by an organization").green
                 puts ""
                 puts ""
-                puts  Rainbow("Trouble Shooting Inputs: ").red
+                puts  Rainbow("Troubleshooting Inputs: ").red
                 puts ""
                 puts  Rainbow("quit").indianred
                 puts  Rainbow("help").indianred
@@ -57,11 +61,17 @@ require_relative "./db/seeds.rb"
                         input = gets.chomp.downcase
                         if input == "find highest paying job" || input == "1." || input == "1" || input == "one"
                                 puts ""
-                                print Job.highest_pay
+                                print "Title: #{Job.highest_pay[:title]}"
+                                puts ""
+                                print "Salary: #{Job.highest_pay[:salary]}"
                                 puts ""
                         elsif input == "search jobs by a given location" || input == "2." || input == "2" || input == "two"
                                 puts ""
-                                print Job.search_by_location("Hermistonchester")
+                                print "Title: #{Job.search_by_location("Hermistonchester")[0][:title]}"
+                                puts ""
+                                print "Salary: #{Job.search_by_location("Hermistonchester")[0][:salary]}"
+                                puts ""
+                                print "Location: #{Job.search_by_location("Hermistonchester")[0][:location]}"
                                 puts ""
                         elsif input == "search jobs by full time status" || input == "3." || input == "3" || input == "three"
                                 puts ""
@@ -73,15 +83,19 @@ require_relative "./db/seeds.rb"
                                 puts ""
                         elsif input == "find the highest paying full time job" || input == "5." || input == "5" || input == "five"
                                 puts ""
-                                puts Job.highest_pay_full_time
+                                puts "Title: #{Job.highest_pay_full_time[:title]}"
+                                puts "Salary: #{Job.highest_pay_full_time[:salary]}"
+                                puts "full-time"
                                 puts ""
                         elsif input == "find the highest paying part time job" || input == "6." || input == "6" || input == "six"
                                 puts ""
-                                puts Job.highest_pay_part_time
+                                puts  "Title: #{Job.highest_pay_part_time[:title]}"
+                                puts "Salary: #{Job.highest_pay_part_time[:salary]}"
+                                puts "part-time"
                                 puts ""
                         elsif input == "find the average salary by organization" || input == "7." || input == "7" || input == "seven"
                                 puts ""
-                                print "$#{Organization.all[1].avg_sal_org}"
+                                print "Salary: $#{Organization.all[1].avg_sal_org}"
                                 puts ""
                         elsif input == "help"
                                 puts "\n***************************\n"
