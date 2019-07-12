@@ -77,8 +77,14 @@ require_relative "./db/seeds.rb"
 # puts "*************"
 
 
-
-
+ Organization
+ Organization
+ puts Rainbow(Organization.top_org).white.underline
+ puts "checked and works "
+ puts Rainbow(Job.highest_pay_part_time).white.underline
+ puts Rainbow(Job.highest_pay_full_time).white.underline
+ puts ""
+ Job
 
 
 
@@ -114,7 +120,7 @@ require_relative "./db/seeds.rb"
         def get_input
                 input = ""
                 while true
-                        valid = ["","find highest paying job","1.","1","one", "search jobs by a given location", "2.", "2", "two", "search jobs by full time status","3.","3","three","search jobs by part time status","4.", "four","find the average salary by organization","5.","5","five", "help", "quit"]
+                        valid = ["","find highest paying job","1.","1","one", "search jobs by a given location", "2.", "2", "two", "search jobs by full time status","3.","3","three","search jobs by part time status","4.", "4", "four", "find the highest paying full time job", "5.","5","five", "find the highest paying part time job", "6.", "6", "six", "find the average salary by organization", "7.", "7", "seven", "help", "quit"]
                         puts ""
                         if valid.include?(input)
                                 puts Rainbow("Please enter a given input or number:" ).yellow
@@ -138,7 +144,15 @@ require_relative "./db/seeds.rb"
                                         puts ""
                                         puts Job.search_by_part_time
                                         puts ""
-                                elsif input == "find the average salary by organization" || input == "5." || input == "5" || input == "five"
+                                elsif input == "find the highest paying full time job" || input == "5." || input == "5" || input == "five"
+                                        puts ""
+                                        puts Job.highest_pay_full_time
+                                        puts ""
+                                elsif input == "find the highest paying part time job" || input == "6." || input == "6" || input == "six"
+                                        puts ""
+                                        puts Job.highest_pay_part_time
+                                        puts ""
+                                elsif input == "find the average salary by organization" || input == "7." || input == "7" || input == "seven"
                                         puts ""
                                         print "$#{Organization.all[1].avg_sal_org}"
                                         puts ""

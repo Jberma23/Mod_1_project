@@ -48,7 +48,7 @@ class Organization < ActiveRecord::Base
             puts y.job_posting_detail
         end
 
-    def self.top_five_orgs
+    def self.top_org
         comp_jobs = 0
          x = self.all.sort_by do |org|
            comp_jobs = org.jobs.length
@@ -62,7 +62,7 @@ class Organization < ActiveRecord::Base
                 jobs << job.first.job_posting_detail
             end
             return organization.name
-            return jobs
+          
             binding.pry
             end 
             
