@@ -1,4 +1,6 @@
 require 'pry'
+require 'rainbow'
+using Rainbow
 require_relative "./config/environment.rb"
 require "sinatra/activerecord/rake"
 require_relative "./app/models/job.rb"
@@ -81,24 +83,29 @@ require_relative "./db/seeds.rb"
 
 
         def help_method
-                puts "Here is a list of all inputs available:"
+                puts Rainbow("Here is a list of all inputs available:").red
                 puts ""
-                puts "Job Inputs: "
                 puts ""
-                puts "1. Find highest paying job"
-                puts "2. Search jobs by a given location"
-                puts "3. Search jobs by full time status"
-                puts "4. Search jobs by part time status"
+                puts  Rainbow("Job Inputs: ").blue
                 puts ""
-                puts "Organization Inputs: "
-                puts "5. Find the average salary by an organization"
+                puts  Rainbow("1. Find highest paying job").cyan
+                puts  Rainbow("2. Search jobs by a given location").cyan
+                puts  Rainbow("3. Search jobs by full time status").cyan
+                puts  Rainbow("4. Search jobs by part time status").cyan
                 puts ""
-                puts "Trouble Shooting Inputs: "
-                puts "quit"
-                puts "help"
+                puts ""
+                puts   Rainbow("Organization Inputs: ").aqua
+                puts ""
+                puts  Rainbow("5. Find the average salary by an organization").green
+                puts ""
+                puts ""
+                puts  Rainbow("Trouble Shooting Inputs: ").red
+                puts ""
+                puts  Rainbow("quit").indianred
+                puts  Rainbow("help").indianred
         end
                 def welcome_message
-                puts "Welcome to our Job Analyzer!"
+                puts Rainbow("Welcome to our Job Analyzer!").cyan.underline
                 puts ""
                 help_method
                 end
@@ -110,9 +117,9 @@ require_relative "./db/seeds.rb"
                         valid = ["","find highest paying job","1.","1","one", "search jobs by a given location", "2.", "2", "two", "search jobs by full time status","3.","3","three","search jobs by part time status","4.", "four","find the average salary by organization","5.","5","five", "help", "quit"]
                         puts ""
                         if valid.include?(input)
-                                puts "Please enter a given input or number:"
+                                puts Rainbow("Please enter a given input or number:" ).yellow
                         else 
-                                puts "Please enter a valid input:"
+                                puts Rainbow("Please enter a valid input:" ).red.bold.underline
                         end
                                 input = gets.chomp.downcase
                                 if input == "find highest paying job" || input == "1." || input == "1" || input == "one"
@@ -146,7 +153,7 @@ require_relative "./db/seeds.rb"
        	                end
              
         end		
-			
+     
 
 
 welcome_message
