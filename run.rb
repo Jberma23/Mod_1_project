@@ -1,5 +1,6 @@
 require 'pry'
 require 'rainbow'
+require 'tty-prompt'
 using Rainbow
 require_relative "./config/environment.rb"
 require "sinatra/activerecord/rake"
@@ -8,8 +9,6 @@ require_relative "./app/models/organization.rb"
 require_relative "./app/models/sector.rb"
 require_relative "./app/models/department.rb"
 require_relative "./db/seeds.rb"
-
-
 
 
 
@@ -42,7 +41,7 @@ require_relative "./db/seeds.rb"
                 puts ""
                 help_method
         end
-
+         
 
         def get_input
                 input = ""
@@ -50,7 +49,7 @@ require_relative "./db/seeds.rb"
                         valid = ["","find highest paying job","1.","1","one", "search jobs by a given location", "2.", "2", "two", "search jobs by full time status","3.","3","three","search jobs by part time status","4.", "4", "four", "find the highest paying full time job", "5.","5","five", "find the highest paying part time job", "6.", "6", "six", "find the average salary by organization", "7.", "7", "seven", "help", "quit"]
                         puts ""
                         if valid.include?(input)
-                                  puts Rainbow("Please enter a given input or number:" ).yellow
+                                  puts Rainbow("Please enter a given input or number:").yellow
                         else 
                                   puts Rainbow("Please enter a valid input:" ).red.bold.underline
                         end
