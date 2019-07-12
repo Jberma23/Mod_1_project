@@ -22,7 +22,7 @@ Futhermore, our application allows the user to interact with the User Interface,
 When you git clone this application, you need to run the following commands in your terminal:
 - add bundle install
 - rake db:migrate 
-In order to start the application you will need to type into the terminal `ruby run.rb` then follow the application's instructions in the terminal. 
+- In order to start the application you will need to type into the terminal `ruby run.rb` then follow the application's instructions in the terminal. 
 
 ## Limitations & future plans:
 
