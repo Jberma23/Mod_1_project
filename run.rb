@@ -62,21 +62,21 @@ require_relative "./db/seeds.rb"
                         input = gets.chomp.downcase
                         if input == "find highest paying job" || input == "1." || input == "1" || input == "one"
                                 puts ""
-                                print "Title: #{Job.highest_pay[:title]}"
+                                print  Rainbow("Title: #{Job.highest_pay[:title]}").underline 
                                 puts ""
-                                print "Salary: #{Job.highest_pay[:salary]}"
+                                print Rainbow("Salary: #{Job.highest_pay[:salary]}").underline
                                 puts ""
                         elsif input == "search jobs by a given location" || input == "2." || input == "2" || input == "two"
                                 puts ""
-                                print "Title: #{Job.search_by_location("Hermistonchester")[0][:title]}"
+                                print  Rainbow("Title: #{Job.search_by_location("Hermistonchester")[0][:title]}").underline 
                                 puts ""
-                                print "Salary: #{Job.search_by_location("Hermistonchester")[0][:salary]}"
+                                print  Rainbow("Salary: #{Job.search_by_location("Hermistonchester")[0][:salary]}").underline 
                                 puts ""
-                                print "Location: #{Job.search_by_location("Hermistonchester")[0][:location]}"
+                                print  Rainbow("Location: #{Job.search_by_location("Hermistonchester")[0][:location]}").underline 
                                 puts ""
                         elsif input == "search jobs by full time status" || input == "3." || input == "3" || input == "three"
                                 puts ""
-                                puts Job.search_by_full_time
+                                puts Job.search_by_full_time 
                                 puts ""
                         elsif input == "search jobs by part time status" || input == "4." || input == "4" || input == "four"
                                 puts ""
@@ -84,19 +84,19 @@ require_relative "./db/seeds.rb"
                                 puts ""
                         elsif input == "find the highest paying full time job" || input == "5." || input == "5" || input == "five"
                                 puts ""
-                                puts "Title: #{Job.highest_pay_full_time[:title]}"
-                                puts "Salary: #{Job.highest_pay_full_time[:salary]}"
-                                puts "full-time"
+                                puts  Rainbow("Title: #{Job.highest_pay_full_time[:title]}").underline 
+                                puts  Rainbow("Salary: #{Job.highest_pay_full_time[:salary]}").underline 
+                                puts  Rainbow("full-time").underline 
                                 puts ""
                         elsif input == "find the highest paying part time job" || input == "6." || input == "6" || input == "six"
                                 puts ""
-                                puts  "Title: #{Job.highest_pay_part_time[:title]}"
-                                puts "Salary: #{Job.highest_pay_part_time[:salary]}"
-                                puts "part-time"
+                                puts  Rainbow("Title: #{Job.highest_pay_part_time[:title]}").underline 
+                                puts  Rainbow("Salary: #{Job.highest_pay_part_time[:salary]}").underline 
+                                puts  Rainbow("part-time").underline 
                                 puts ""
                         elsif input == "find the average salary by organization" || input == "7." || input == "7" || input == "seven"
                                 puts ""
-                                print "Salary: $#{Organization.all[1].avg_sal_org}"
+                                print Rainbow("Salary: $#{Organization.all[1].avg_sal_org}").underline 
                                 puts ""
                         elsif input == "help"
                                 puts "\n***************************\n"
