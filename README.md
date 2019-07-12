@@ -1,8 +1,9 @@
-# Mod_1_project
-Repository for Monster Analyzer
+## Mod_1_project
 Chine: if you are reading this please press command, K, and Z at the same time to enter zen mode
 
-                        Welcome to the Monster Job analyzer!!
+######################   Welcome to the Monster Job analyzer!!   ######################
+
+
 ## Background:
 Monster Job Analyzer is designed to search through a large database of job postings to find specific data or return results for a specific query that a user inputs. 
        
@@ -15,10 +16,11 @@ parts of an organizations to a sector and a job posting to a specific department
 The job model contains several methods that allows a user to find the highest paying job posting, search jobs by location, search by part-time and full-time, as well as search for the highest paying part-time or full-time jobs. 
 Organizations contains one method that allows a user to find the average salary for an organization based on all jobs postings of an organization. 
 
-Futhermore, our application allows the user to interact with the User Interface, see the methods available to be called, as well offers a help method and a quit method. The application records the users inputs and executes the corresponding command if the input is a valid command or  offers an additional prompt. We styled the user interface with the rainbow gem to add color. 
+Futhermore, our application allows the user to interact with the User Interface, see the methods available to be called, as well offers a help method and a quit method. The application records the users inputs and executes the corresponding command if the input is a valid command or  offers an additional prompt. We styled the user interface with the rainbow gem to add color and styling. 
     
 ## Instructions:
-- add budle install
+When you git clone this application, you need to run the following commands in your terminal:
+- add bundle install
 - rake db:migrate 
 In order to start the application you will need to type into the terminal `ruby run.rb` then follow the application's instructions in the terminal. 
 
@@ -28,9 +30,12 @@ We were unable to use the API we had originally planned to use as there were sev
 
 ## Contributors:
 This application was created by Jesse Berman and Nick Ruggieri with guidance and assistance from Trevor Jamesone, Chine Anikwe, and Paul Nicholsen.
-##License 
+
+##License:
 Please visit `License.md` for a full details of the license. 
 
+## Contributing:
+Please visit `CONTRIBUTING.md` for full all the details relating to contributing. 
 ## Thanks for reading and trying the Monster Job Analyzer!
 
 
