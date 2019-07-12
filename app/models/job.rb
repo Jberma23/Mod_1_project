@@ -4,33 +4,36 @@ class Job < ActiveRecord::Base
     has_one :sector, through: :department
     
     def print_hash
-        {
-            title: self.title, 
-            description: self.description, 
-            full_time: self.full_time,
-            salary: self.salary,
-            location: self.location,
-            page_url: self.page_url
-        }
+            {
+                title: self.title, 
+                description: self.description, 
+                full_time: self.full_time,
+                salary: self.salary,
+                location: self.location,
+                page_url: self.page_url
+            }
     end
 
     def self.attribute_add
         self.all.map do |job|
-            {
-                title: job.title, 
-                description: job.description, 
-                full_time: job.full_time,
-                salary: job.salary,
-                location: job.location,
-                page_url: job.page_url
-            }
+        {
+            title: job.title, 
+            description: job.description, 
+            full_time: job.full_time,
+            salary: job.salary,
+            location: job.location,
+            page_url: job.page_url
+        }
         end
     end
 
     def self.search_by_full_time
-        self.attribute_add.select do |job|
+         self.attribute_add.select do |job|
             if job[:full_time] == true
-                 puts job
+                puts ""
+                puts Rainbow("#{job.first(6).first[1].capitalize}").underline 
+                puts Rainbow("#{job.first(6)[3][1]}").underline 
+                puts Rainbow("#{job.first(6)[4][1]}").underline 
             end
         end
     end
@@ -38,7 +41,10 @@ class Job < ActiveRecord::Base
     def self.search_by_part_time
         self.attribute_add.select do |job|
            if job[:full_time] == false
-                puts job
+                puts ""
+                puts Rainbow("#{job.first(6).first[1].capitalize}").underline 
+                puts Rainbow("#{job.first(6)[3][1]}").underline 
+                puts Rainbow("#{job.first(6)[4][1]}").underline 
            end
        end
    end
@@ -58,7 +64,7 @@ class Job < ActiveRecord::Base
     
     #class method to return the highest paying job
     def self.highest_pay 
-        self.sort_by_salary.last.print_hash
+     self.sort_by_salary.last.print_hash
     end
 
     def self.sort_by_salary
@@ -84,6 +90,9 @@ class Job < ActiveRecord::Base
             end  
         end
     end
+
+    
+
 
 end
  
