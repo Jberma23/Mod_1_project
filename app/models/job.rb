@@ -59,12 +59,13 @@ class Job < ActiveRecord::Base
 
     def salary_int
         num = self.salary.remove("$", ",")
+        # binding.pry
         num.to_i
     end
     
     #class method to return the highest paying job
     def self.highest_pay 
-     self.sort_by_salary.last.print_hash
+        self.all.sort_by_salary.reverse.first.print_hash
     end
 
     def self.sort_by_salary
@@ -72,10 +73,9 @@ class Job < ActiveRecord::Base
             job.salary_int
         end
     end
-
+    
     def self.highest_pay_part_time
-        x= self.all.sort_by_salary.last(5)
-        self.all.sort_by_salary.last(5).each do |job|
+        self.all.sort_by_salary.reverse.first(5).each do |job|
             if job[:full_time] == false
                 return job.print_hash
             end  
@@ -83,8 +83,7 @@ class Job < ActiveRecord::Base
     end
   
     def self.highest_pay_full_time
-        self.all.sort_by_salary.last(5)
-        self.all.sort_by_salary.last(5).each do |career|
+        self.all.sort_by_salary.reverse.first(5).find do |career|
             if career[:full_time] == true
                 return career.print_hash
             end  

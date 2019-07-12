@@ -1,5 +1,6 @@
 require 'pry'
 require 'rainbow'
+require 'rainbow/refinement'
 require 'tty-prompt'
 using Rainbow
 require 'tty-prompt'
@@ -19,7 +20,7 @@ require_relative "./db/seeds.rb"
             # user_input = @prompt.select("Choose your input", ["1. Find highest paying job", "2. Search jobs by a given location", "3. Search jobs by full time status", "4. Search jobs by part time status", "5. Find the highest paying full time job", "6. Find the highest paying part time job", "7. Find the average salary by an organization"])
                 
         
-                puts Rainbow("Here is a list of all inputs available:").red
+                puts Rainbow("Here is a list of all inputs available:").red.blink
                 puts ""
                 puts ""
                 puts  Rainbow("Job Inputs: ").blue
@@ -68,7 +69,7 @@ require_relative "./db/seeds.rb"
                                 puts ""
                         elsif input == "search jobs by a given location" || input == "2." || input == "2" || input == "two"
                                 puts ""
-                                print  Rainbow("Title: #{Job.search_by_location("Hermistonchester")[0][:title]}").underline 
+                                print  Rainbow("Title: #{Job.search_by_location("Hermistonchester")[0][:title]}").underline
                                 puts ""
                                 print  Rainbow("Salary: #{Job.search_by_location("Hermistonchester")[0][:salary]}").underline 
                                 puts ""
